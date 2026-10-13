@@ -1,0 +1,22 @@
+{
+  "name": "FairwayLink — Golf Sim & Launch Monitor",
+  "short_name": "FairwayLink",
+  "description": "Turn your phone's rear camera into a golf launch monitor. Play OGC Open courses, a driving range and a putting green, and cast the shot view to your TV.",
+  "start_url": "index.html",
+  "scope": ".",
+  "display": "fullscreen",
+  "display_override": ["fullscreen", "standalone", "minimal-ui"],
+  "orientation": "any",
+  "theme_color": "#07110e",
+  "background_color": "#07110e",
+  "categories": ["sports", "games", "fitness"],
+  "icons": [
+    { "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    { "name": "Driving range", "url": "index.html#range" },
+    { "name": "Putting green", "url": "index.html#green" }
+  ]
+}

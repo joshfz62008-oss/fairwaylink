@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0a1512">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>FairwayLink &mdash; Golf Sim &amp; Launch Monitor</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>&#9971;</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="app" class="portrait">
+
+  <!-- ================= TOP BAR ================= -->
+  <header id="topbar">
+    <div class="brand">
+      <span class="logo">&#9971;</span>
+      <span class="brandtext"><b>FairwayLink</b><i id="modeLabel">Home</i></span>
+    </div>
+    <div class="topactions">
+      <button id="btnReady" class="pill ready-pill" title="Swing readiness">
+        <span class="dot"></span><span id="readyText">IDLE</span>
+      </button>
+      <button class="icon-btn" id="btnCam" title="Camera / launch monitor">&#128247;</button>
+      <button class="icon-btn" id="btnPip" title="Picture in picture camera view">&#9635;</button>
+      <button class="icon-btn" id="btnClean" title="Clean mode (hide the UI when screen sharing)">&#128250;</button>
+      <button class="icon-btn" id="btnFull" title="Full screen for screen share / cast">&#9974;</button>
+      <button class="icon-btn" id="btnSet" title="Settings">&#9881;</button>
+    </div>
+  </header>
+
+  <!-- ================= HOME ================= -->
+  <section id="scr-home" class="screen active">
+    <div class="homehero">
+      <div class="heroleft">
+        <h1>Simulator &amp; Launch Monitor</h1>
+        <p class="sub">Phone camera launch monitor &middot; OGC Open course library &middot; range &amp; putting green</p>
+        <div class="badges">
+          <span class="badge" id="badgeCam">Camera: off</span>
+          <span class="badge" id="badgeTrack">Tracker: idle</span>
+          <span class="badge" id="badgeDevice">Device</span>
+        </div>
+      </div>
+      <div class="herocam" id="herocam">
+        <video id="heroVideo" playsinline muted autoplay></video>
+        <canvas id="heroOverlay"></canvas>
+        <div class="camplaceholder" id="camPlaceholder">
+          <div class="ph-icon">&#128247;</div>
+          <div class="ph-txt">Rear camera off</div>
+          <button class="btn primary" id="btnStartCamHero">Start launch monitor</button>
+          <small>Uses the rear (main) camera of your Galaxy A25 &middot; nothing leaves your phone</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="modes">
+      <button class="modecard" data-mode="round">
+        <div class="mc-ico">&#9971;</div>
+        <div><b>Play a course</b><i>OGC Open course library &mdash; 14 courses</i></div>
+      </button>
+      <button class="modecard" data-mode="range">
+        <div class="mc-ico">&#127919;</div>
+        <div><b>Driving range</b><i>Full bag, targets, live shot trace</i></div>
+      </button>
+      <button class="modecard" data-mode="green">
+        <div class="mc-ico">&#9873;</div>
+        <div><b>Putting green</b><i>Green reading, break &amp; lag drills</i></div>
+      </button>
+      <button class="modecard" data-mode="cage">
+        <div class="mc-ico">&#127907;</div>
+        <div><b>Club gapping</b><i>Test every club, build your bag</i></div>
+      </button>
+    </div>
+
+    <div class="rowhead">
+      <h2>Courses <small id="courseCount"></small></h2>
+      <div class="seg" id="regionFilter">
+        <button data-region="all" class="on">All</button>
+        <button data-region="Europe">Europe</button>
+        <button data-region="Asia">Asia</button>
+        <button data-region="North America">N. America</button>
+        <button data-region="USA Desert">Desert</button>
+      </div>
+    </div>
+    <div class="courselist" id="courselist"></div>
+    <p class="fineprint" id="ogccredit"></p>
+  </section>
+
+  <!-- ================= COURSE DETAIL ================= -->
+  <section id="scr-course" class="screen">
+    <button class="backlink" data-nav="home">&#8592; Courses</button>
+    <div class="coursehead">
+      <img id="cdLabel" class="cdlabel" alt="">
+      <div>
+        <h2 id="cdName"></h2>
+        <p id="cdMeta" class="sub"></p>
+        <div class="seg" id="cdTees">
+          <button data-tee="blue" class="on">Blue</button>
+          <button data-tee="white">White</button>
+          <button data-tee="red">Forward</button>
+        </div>
+      </div>
+    </div>
+    <div class="strip" id="cdHoles"></div>
+    <div class="btnrow">
+      <button class="btn primary big" id="cdPlay">Play 18 / full round</button>
+      <button class="btn" id="cdFront">Front 9</button>
+      <button class="btn" id="cdQuick">Quick 3</button>
+    </div>
+  </section>
+
+  <!-- ================= SIM VIEW ================= -->
+  <section id="scr-sim" class="screen simscreen">
+    <canvas id="view"></canvas>
+
+    <!-- Picture-in-picture camera window (ball alignment) -->
+    <div id="pip" class="pip">
+      <div class="pip-head">
+        <span id="pipTitle">Ball view</span>
+        <div class="pip-tools">
+          <button id="pipAlign" title="Ball alignment view">&#127919;</button>
+          <button id="pipZoom" title="Cycle zoom">&#128269;</button>
+          <button id="pipMin" title="Collapse">&#8722;</button>
+        </div>
+      </div>
+      <div class="pip-body">
+        <video id="cam" playsinline muted autoplay></video>
+        <canvas id="camfx"></canvas>
+        <div class="aimline" id="aimLine"></div>
+      </div>
+      <div class="pip-foot">
+        <span class="tag" id="pipStatus">camera off</span>
+        <span class="tag" id="pipFps">-- fps</span>
+      </div>
+    </div>
+
+    <!-- HUD -->
+    <div id="hud">
+      <div class="hud-left">
+        <div class="tile"><small>Hole</small><b id="hHole">1</b></div>
+        <div class="tile"><small>Par</small><b id="hPar">4</b></div>
+        <div class="tile"><small id="hPinLabel">To pin</small><b id="hPin">412</b><i id="hPinUnit">yd</i></div>
+        <div class="tile"><small id="hElevLabel">Elev</small><b id="hElev">0</b><i id="hElevUnit">yd</i></div>
+      </div>
+      <div class="hud-right">
+        <div class="tile"><small>Score</small><b id="hScore">E</b></div>
+        <div class="tile"><small>Strokes</small><b id="hStrokes">0</b></div>
+      </div>
+      <canvas id="minimap" class="minimap"></canvas>
+      <div class="hud-bottom">
+        <div class="clubpick" id="clubPick"></div>
+        <div class="shotinfo">
+          <div class="si"><small>Club</small><b id="siClub">&mdash;</b></div>
+          <div class="si"><small>Ball</small><b id="siBall">0</b><i>mph</i></div>
+          <div class="si"><small>Launch</small><b id="siLaunch">0</b><i>&deg;</i></div>
+          <div class="si"><small>Spin</small><b id="siSpin">0</b><i>rpm</i></div>
+          <div class="si"><small>Carry</small><b id="siCarry">0</b><i>yd</i></div>
+          <div class="si"><small>Offline</small><b id="siOff">0</b><i>yd</i></div>
+          <div class="si wide"><small>Measured by</small><b id="sMag">player model</b></div>
+        </div>
+        <div class="actionbar">
+          <button class="act" id="btnAimL">&#9664;<span>Aim</span></button>
+          <button class="act" id="btnClubs">&#128091;<span>Clubs</span></button>
+          <button class="act" id="btnSwing">&#9971;<span>Swing</span></button>
+          <button class="act" id="btnRight">&#9654;<span>Aim</span></button>
+          <button class="act" id="btnSit">&#8942;<span>Menu</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+    <div id="banner" class="banner"></div>
+  </section>
+
+  <!-- ================= CAMERA SETUP ================= -->
+  <section id="scr-cam" class="screen camscreen">
+    <button class="backlink" data-nav="back">&#8592; Back</button>
+    <h2>Launch monitor &mdash; ball alignment</h2>
+    <p class="sub">Place the phone on the ground <b>behind and to the side</b> of your mat, rear camera facing down the line. The ball should sit on the alignment cross.</p>
+    <div class="camstage">
+      <video id="camBig" playsinline muted autoplay></video>
+      <canvas id="camBigFx"></canvas>
+      <canvas id="camBigGuides"></canvas>
+    </div>
+    <div class="camctl">
+      <div class="ctl-row"><span>Detection</span><input id="setThresh" type="range" min="8" max="70" value="26"><output id="outThresh">26</output></div>
+      <div class="ctl-row"><span>Frame rate</span><input id="setFps" type="range" min="30" max="240" step="30" value="60"><output id="outFps">60</output></div>
+      <div class="ctl-row"><span>Tee distance</span><input id="setTee" type="range" min="4" max="16" step="0.5" value="7"><output id="outTee">7 ft</output></div>
+      <div class="ctl-row"><span>Camera height</span><input id="setCamH" type="range" min="2" max="24" step="0.5" value="4"><output id="outCamH">4 in</output></div>
+    </div>
+    <div class="btnrow wrap">
+      <button class="btn" id="btnAutoCal">Auto-calibrate scene</button>
+      <button class="btn" id="btnLockBall">Lock ball position</button>
+      <button class="btn" id="btnSwapCam">Front / rear camera</button>
+      <button class="btn" id="btnDemo">Simulated camera (dry run)</button>
+      <button class="btn" id="btnDemoSwing">Demo swing</button>
+      <button class="btn primary" id="btnArm">Arm launch monitor</button>
+    </div>
+    <div class="calstatus" id="calStatus">Scene: learning&hellip;</div>
+  </section>
+
+  <!-- ================= SCORECARD ================= -->
+  <section id="scr-card" class="screen">
+    <button class="backlink" data-nav="back">&#8592; Back to game</button>
+    <h2>Scorecard</h2>
+    <div class="cardwrap"><table id="cardTable"></table></div>
+    <div class="btnrow">
+      <button class="btn primary" id="btnNextHole">Next hole</button>
+      <button class="btn" id="btnFinishRound">Finish round</button>
+    </div>
+  </section>
+
+  <!-- ================= SETTINGS ================= -->
+  <section id="scr-set" class="screen">
+    <button class="backlink" data-nav="back">&#8592; Back</button>
+    <h2>Settings</h2>
+
+    <div class="setgroup">
+      <h3>Simulator</h3>
+      <label class="setrow"><span>Units</span>
+        <select id="sUnits"><option value="yd">Yards</option><option value="m">Metres</option></select></label>
+      <label class="setrow"><span>Handedness</span>
+        <select id="sHand"><option value="right">Right handed</option><option value="left">Left handed</option></select></label>
+      <label class="setrow"><span>Camera field of view</span>
+        <input id="sFov" type="range" min="30" max="90" value="55"><output id="oFov">55&deg;</output></label>
+      <label class="setrow"><span>Ball flight model</span>
+        <select id="sBall"><option value="real">Realistic (limited-flight ball)</option><option value="range">Range ball (reduced spin)</option><option value="pro">Tour ball</option></select></label>
+      <label class="setrow"><span>Elevation profile</span>
+        <select id="sElev"><option value="flat">Flat lie</option><option value="gentle">Gentle roll (from course map)</option></select></label>
+      <label class="setrow"><span>Wind</span>
+        <input id="sWind" type="range" min="0" max="25" value="4"><output id="oWind">4 mph</output></label>
+      <label class="setrow"><span>Aim assist line</span><input id="sAim" type="checkbox" checked></label>
+    </div>
+
+    <div class="setgroup">
+      <h3>Launch monitor</h3>
+      <label class="setrow"><span>Camera</span>
+        <select id="sCamera"><option value="environment">Rear / main camera</option><option value="user">Front camera</option></select></label>
+      <label class="setrow"><span>Capture resolution</span>
+        <select id="sRes"><option value="1920">1920 &times; 1080</option><option value="1280">1280 &times; 720</option><option value="3840">3840 &times; 2160 (if supported)</option></select></label>
+      <label class="setrow"><span>High frame rate</span>
+        <select id="sHfr"><option value="120">Prefer 120 fps</option><option value="60" selected>Prefer 60 fps</option><option value="240">Prefer 240 fps</option></select></label>
+      <label class="setrow"><span>Notify when ready to swing</span><input id="sNotify" type="checkbox" checked></label>
+      <label class="setrow"><span>Vibrate when ready</span><input id="sVib" type="checkbox" checked></label>
+      <label class="setrow"><span>PiP camera view</span><input id="sPip" type="checkbox" checked></label>
+    </div>
+
+    <div class="setgroup">
+      <h3>Display &amp; casting</h3>
+      <label class="setrow"><span>Auto full screen on play</span><input id="sAutoFs" type="checkbox" checked></label>
+      <label class="setrow"><span>Lock landscape on play</span><input id="sAutoLand" type="checkbox"></label>
+      <label class="setrow"><span>Hide UI when screen sharing</span><input id="sClean" type="checkbox" checked></label>
+      <button class="btn" id="btnCastHelp">How to cast to Google Home / Smart View</button>
+    </div>
+
+    <div class="setgroup">
+      <h3>Session</h3>
+      <button class="btn" id="btnResetStats">Reset shot history</button>
+      <p class="fineprint">FairwayLink runs entirely on-device. Camera frames are analysed in the browser and never uploaded.</p>
+    </div>
+  </section>
+
+  <!-- ================= CAST HELP ================= -->
+  <section id="scr-cast" class="screen">
+    <button class="backlink" data-nav="back">&#8592; Back</button>
+    <h2>Screen share &amp; casting</h2>
+    <div class="castgrid">
+      <div class="castcard">
+        <h3>Google Home / Chromecast</h3>
+        <ol>
+          <li>Open the <b>Google Home</b> app on this phone.</li>
+          <li>Tap your <b>Chromecast / Google TV</b> device.</li>
+          <li>Choose <b>Cast my screen</b> &rarr; <b>Cast screen</b> and accept.</li>
+          <li>Come back to FairwayLink, tap the <b>&#9974;</b> full-screen button and turn the phone landscape.</li>
+          <li>The simulator fills the TV; the PiP camera window stays on the phone so you can see your ball.</li>
+        </ol>
+      </div>
+      <div class="castcard">
+        <h3>Samsung Smart View</h3>
+        <ol>
+          <li>Swipe down the notification shade twice and find <b>Smart View</b>.</li>
+          <li>Select your Samsung TV or projector.</li>
+          <li>Set the TV to <b>full screen</b> if it shows a mirrored box.</li>
+          <li>Tap <b>&#9974;</b> in FairwayLink for immersive mode (hides browser bars).</li>
+          <li>Keep the phone in landscape for a 16:9 fill.</li>
+        </ol>
+      </div>
+      <div class="castcard">
+        <h3>Tips for a clean picture</h3>
+        <ul>
+          <li>Casting adds 100&ndash;400 ms of latency &mdash; watch the <i>phone</i> for swing feedback, use the TV for the shot view.</li>
+          <li>Enable <b>Hide UI when screen sharing</b> in Settings for a cleaner broadcast.</li>
+          <li>Keep the phone plugged in; camera analysis + casting is power hungry.</li>
+          <li>Turn off auto-rotate lock if the picture stays portrait.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CLUB MODAL ================= -->
+  <div id="modal" class="modal">
+    <div class="modalbox" id="modalbox"></div>
+  </div>
+
+  <footer id="tabbar">
+    <button data-nav="home" class="on">&#9971;<span>Home</span></button>
+    <button data-nav="range">&#127919;<span>Range</span></button>
+    <button data-nav="green">&#9873;<span>Putting</span></button>
+    <button data-nav="cam">&#128247;<span>Camera</span></button>
+    <button data-nav="card">&#128203;<span>Card</span></button>
+  </footer>
+</div>
+
+<script src="js/physics.js"></script>
+<script src="js/terrain.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/track.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

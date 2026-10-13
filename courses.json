@@ -1,0 +1,826 @@
+{
+ "source": "Layout maps reproduced from OGC Open (ogcopen.com) course pages - more dots media UG.",
+ "note": "Hole layout artwork, hole counts and routing are taken from the public OGC Open course pages. Par/yardage are reconstructed estimates for simulator play (OGC does not publish per-hole yardage).",
+ "courses": [
+  {
+   "id": 1000,
+   "name": "Helsingborg Public Course",
+   "region": "Europe",
+   "holes": 3,
+   "par": 10,
+   "yards": 638,
+   "label": "assets/courses/id1000/label.png",
+   "layout": [
+    {
+     "n": 1,
+     "par": 4,
+     "yards": 318,
+     "art": "assets/courses/id1000/h0.jpg"
+    },
+    {
+     "n": 2,
+     "par": 3,
+     "yards": 156,
+     "art": "assets/courses/id1000/h1.jpg"
+    },
+    {
+     "n": 3,
+     "par": 3,
+     "yards": 164,
+     "art": "assets/courses/id1000/h2.jpg"
+    }
+   ]
+  },
+  {
+   "id": 1006,
+   "name": "San Marino Golf Club",
+   "region": "Europe",
+   "holes": 6,
+   "par": 24,
+   "yards": 1848,
+   "label": "assets/courses/id1006/label.png",
+   "layout": [
+    {
+     "n": 1,
+     "par": 4,
+     "yards": 300,
+     "art": "assets/courses/id1006/h0.jpg"
+    },
+    {
+     "n": 2,
+     "par": 3,
+     "yards": 144,
+     "art": "assets/courses/id1006/h1.jpg"
+    },
+    {
+     "n": 3,
+     "par": 4,
+     "yards": 266,
+     "art": "assets/courses/id1006/h2.jpg"
+    },
+    {
+     "n": 4,
+     "par": 4,
+     "yards": 284,
+     "art": "assets/courses/id1006/h3.jpg"
+    },
+    {
+     "n": 5,
+     "par": 5,
+     "yards": 552,
+     "art": "assets/courses/id1006/h4.jpg"
+    },
+    {
+     "n": 6,
+     "par": 4,
+     "yards": 302,
+     "art": "assets/courses/id1006/h5.jpg"
+    }
+   ]
+  },
+  {
+   "id": 1002,
+   "name": "Perthshire Country Club",
+   "region": "Europe",
+   "holes": 9,
+   "par": 36,
+   "yards": 3048,
+   "label": "assets/courses/id1002/label.png",
+   "layout": [
+    {
+     "n": 1,
+     "par": 4,
+     "yards": 294,
+     "art": "assets/courses/id1002/h0.jpg"
+    },
+    {
+     "n": 2,
+     "par": 4,
+     "yards": 330,
+     "art": "assets/courses/id1002/h1.jpg"
+    },
+    {
+     "n": 3,
+     "par": 4,
+     "yards": 386,
+     "art": "assets/courses/id1002/h2.jpg"
+    },
+    {
+     "n": 4,
+     "par": 5,
+     "yards": 526,
+     "art": "assets/courses/id1002/h3.jpg"
+    },
+    {
+     "n": 5,
+     "par": 4,
+     "yards": 286,
+     "art": "assets/courses/id1002/h4.jpg"
+    },
+    {
+     "n": 6,
+     "par": 4,
+     "yards": 404,
+     "art": "assets/courses/id1002/h5.jpg"
+    },
+    {
+     "n": 7,
+     "par": 4,
+     "yards": 368,
+     "art": "assets/courses/id1002/h6.jpg"
+    },
+    {
+     "n": 8,
+     "par": 4,
+     "yards": 330,
+     "art": "assets/courses/id1002/h7.jpg"
+    },
+    {
+     "n": 9,
+     "par": 3,
+     "yards": 124,
+     "art": "assets/courses/id1002/h8.jpg"
+    }
+   ]
+  },
+  {
+   "id": 1036,
+   "name": "Berlin White Lake",
+   "region": "Europe",
+   "holes": 6,
+   "par": 23,
+   "yards": 1666,
+   "label": "assets/courses/id1036/label.png",
+   "layout": [
+    {
+     "n": 1,
+     "par": 5,
+     "yards": 460,
+     "art": "assets/courses/id1036/h0.jpg"
+    },
+    {
+     "n": 2,
+     "par": 4,
+     "yards": 374,
+     "art": "assets/courses/id1036/h1.jpg"
+    },
+    {
+     "n": 3,
+     "par": 3,
+     "yards": 114,
+     "art": "assets/courses/id1036/h2.jpg"
+    },
+    {
+     "n": 4,
+     "par": 4,
+     "yards": 334,
+     "art": "assets/courses/id1036/h3.jpg"
+    },
+    {
+     "n": 5,
+     "par": 4,
+     "yards": 264,
+     "art": "assets/courses/id1036/h4.jpg"
+    },
+    {
+     "n": 6,
+     "par": 3,
+     "yards": 120,
+     "art": "assets/courses/id1036/h5.jpg"
+    }
+   ]
+  },
+  {
+   "id": 1004,
+   "name": "Sevilla Golf Resort",
+   "region": "Europe",
+   "holes": 9,
+   "par": 34,
+   "yards": 2822,
+   "label": "assets/courses/id1004/label.png",
+   "layout": [
+    {
+     "n": 1,
+     "par": 3,
+     "yards": 142,
+     "art": "assets/courses/id1004/h0.jpg"
+    },
+    {
+     "n": 2,
+     "par": 3,
+     "yards": 130,
+     "art": "assets/courses/id1004/h1.jpg"
+    },
+    {
+     "n": 3,
+     "par": 3,
+     "yards": 160,
+     "art": "assets/courses/id1004/h2.jpg"
+    },
+    {
+     "n": 4,
+     "par": 5,
+     "yards": 478,
+     "art": "assets/courses/id1004/h3.jpg"
+    },
+    {
+     "n": 5,
+     "par": 4,
+     "yards": 384,
+     "art": "assets/courses/id1004/h4.jpg"
+    },
+    {
+     "n": 6,
+     "par": 4,
+     "yards": 400,
+     "art": "assets/courses/id1004/h5.jpg"
+    },
+    {
+     "n": 7,
+     "par": 4,
+     "yards": 398,
+     "art": "assets/courses/id1004/h6.jpg"
+    },
+    {
+     "n": 8,
+     "par": 4,
+     "yards": 410,
+     "art": "assets/courses/id1004/h7.jpg"
+    },
+    {
+     "n": 9,
+     "par": 4,
+     "yards": 320,
+     "art": "assets/courses/id1004/h8.jpg"
+    }
+   ]
+  },
+  {
+   "id": 2001,
+   "name": "Saigon City Cycle",
+   "region": "Asia",
+   "holes": 7,
+   "par": 29,
+   "yards": 2458,
+   "label": "assets/courses/id2001/label.png",
+   "layout": [
+    {
+     "n": 1,
+     "par": 4,
+     "yards": 390,
+     "art": "assets/courses/id2001/h0.jpg"
+    },
+    {
+     "n": 2,
+     "par": 4,
+     "yards": 346,
+     "art": "assets/courses/id2001/h1.jpg"
+    },
+    {
+     "n": 3,
+     "par": 5,
+     "yards": 522,
+     "art": "assets/courses/id2001/h2.jpg"
+    },
+    {
+     "n": 4,
+     "par": 5,
+     "yards": 452,
+     "art": "assets/courses/id2001/h3.jpg"
+    },
+    {
+     "n": 5,
+     "par": 4,
+     "yards": 276,
+     "art": "assets/courses/id2001/h4.jpg"
+    },
+    {
+     "n": 6,
+     "par": 3,
+     "yards": 144,
+     "art": "assets/courses/id2001/h5.jpg"
+    },
+    {
+     "n": 7,
+     "par": 4,
+     "yards": 328,
+     "art": "assets/courses/id2001/h6.jpg"
+    }
+   ]
+  },
+  {
+   "id": 2002,
+   "name": "Phuket Golf Resort",
+   "region": "Asia",
+   "holes": 10,
+   "par": 38,
+   "yards": 2862,
+   "label": "assets/courses/id2002/label.png",
+   "layout": [
+    {
+     "n": 1,
+     "par": 4,
+     "yards": 262,
+     "art": "assets/courses/id2002/h0.jpg"
+    },
+    {
+     "n": 2,
+     "par": 4,
+     "yards": 270,
+     "art": "assets/courses/id2002/h1.jpg"
+    },
+    {
+     "n": 3,
+     "par": 5,
+     "yards": 496,
+     "art": "assets/courses/id2002/h2.jpg"
+    },
+    {
+     "n": 4,
+     "par": 4,
+     "yards": 306,
+     "art": "assets/courses/id2002/h3.jpg"
+    },
+    {
+     "n": 5,
+     "par": 4,
+     "yards": 396,
+     "art": "assets/courses/id2002/h4.jpg"
+    },
+    {
+     "n": 6,
+     "par": 3,
+     "yards": 128,
+     "art": "assets/courses/id2002/h5.jpg"
+    },
+    {
+     "n": 7,
+     "par": 4,
+     "yards": 386,
+     "art": "assets/courses/id2002/h6.jpg"
+    },
+    {
+     "n": 8,
+     "par": 4,
+     "yards": 368,
+     "art": "assets/courses/id2002/h7.jpg"
+    },
+    {
+     "n": 9,
+     "par": 3,
+     "yards": 128,
+     "art": "assets/courses/id2002/h8.jpg"
+    },
+    {
+     "n": 10,
+     "par": 3,
+     "yards": 122,
+     "art": "assets/courses/id2002/h9.jpg"
+    }
+   ]
+  },
+  {
+   "id": 2003,
+   "name": "Hongkong Royal Golf Club",
+   "region": "Asia",
+   "holes": 7,
+   "par": 28,
+   "yards": 2374,
+   "label": "assets/courses/id2003/label.png",
+   "layout": [
+    {
+     "n": 1,
+     "par": 4,
+     "yards": 326,
+     "art": "assets/courses/id2003/h0.jpg"
+    },
+    {
+     "n": 2,
+     "par": 4,
+     "yards": 322,
+     "art": "assets/courses/id2003/h1.jpg"
+    },
+    {
+     "n": 3,
+     "par": 4,
+     "yards": 314,
+     "art": "assets/courses/id2003/h2.jpg"
+    },
+    {
+     "n": 4,
+     "par": 4,
+     "yards": 340,
+     "art": "assets/courses/id2003/h3.jpg"
+    },
+    {
+     "n": 5,
+     "par": 3,
+     "yards": 152,
+     "art": "assets/courses/id2003/h4.jpg"
+    },
+    {
+     "n": 6,
+     "par": 5,
+     "yards": 524,
+     "art": "assets/courses/id2003/h5.jpg"
+    },
+    {
+     "n": 7,
+     "par": 4,
+     "yards": 396,
+     "art": "assets/courses/id2003/h6.jpg"
+    }
+   ]
+  },
+  {
+   "id": 2004,
+   "name": "Borneo Wildlife Resort",
+   "region": "Asia",
+   "holes": 9,
+   "par": 36,
+   "yards": 3064,
+   "label": "assets/courses/id2004/label.png",
+   "layout": [
+    {
+     "n": 1,
+     "par": 5,
+     "yards": 548,
+     "art": "assets/courses/id2004/h0.jpg"
+    },
+    {
+     "n": 2,
+     "par": 4,
+     "yards": 294,
+     "art": "assets/courses/id2004/h1.jpg"
+    },
+    {
+     "n": 3,
+     "par": 4,
+     "yards": 356,
+     "art": "assets/courses/id2004/h2.jpg"
+    },
+    {
+     "n": 4,
+     "par": 4,
+     "yards": 408,
+     "art": "assets/courses/id2004/h3.jpg"
+    },
+    {
+     "n": 5,
+     "par": 4,
+     "yards": 274,
+     "art": "assets/courses/id2004/h4.jpg"
+    },
+    {
+     "n": 6,
+     "par": 5,
+     "yards": 552,
+     "art": "assets/courses/id2004/h5.jpg"
+    },
+    {
+     "n": 7,
+     "par": 3,
+     "yards": 142,
+     "art": "assets/courses/id2004/h6.jpg"
+    },
+    {
+     "n": 8,
+     "par": 3,
+     "yards": 158,
+     "art": "assets/courses/id2004/h7.jpg"
+    },
+    {
+     "n": 9,
+     "par": 4,
+     "yards": 332,
+     "art": "assets/courses/id2004/h8.jpg"
+    }
+   ]
+  },
+  {
+   "id": 3001,
+   "name": "Quebec City Course",
+   "region": "North America",
+   "holes": 6,
+   "par": 24,
+   "yards": 1846,
+   "label": "assets/courses/id3001/label.png",
+   "layout": [
+    {
+     "n": 1,
+     "par": 5,
+     "yards": 466,
+     "art": "assets/courses/id3001/h0.jpg"
+    },
+    {
+     "n": 2,
+     "par": 3,
+     "yards": 124,
+     "art": "assets/courses/id3001/h1.jpg"
+    },
+    {
+     "n": 3,
+     "par": 4,
+     "yards": 312,
+     "art": "assets/courses/id3001/h2.jpg"
+    },
+    {
+     "n": 4,
+     "par": 4,
+     "yards": 332,
+     "art": "assets/courses/id3001/h3.jpg"
+    },
+    {
+     "n": 5,
+     "par": 4,
+     "yards": 318,
+     "art": "assets/courses/id3001/h4.jpg"
+    },
+    {
+     "n": 6,
+     "par": 4,
+     "yards": 294,
+     "art": "assets/courses/id3001/h5.jpg"
+    }
+   ]
+  },
+  {
+   "id": 3002,
+   "name": "Manitoba Country Club",
+   "region": "North America",
+   "holes": 9,
+   "par": 37,
+   "yards": 3248,
+   "label": "assets/courses/id3002/label.png",
+   "layout": [
+    {
+     "n": 1,
+     "par": 5,
+     "yards": 542,
+     "art": "assets/courses/id3002/h0.jpg"
+    },
+    {
+     "n": 2,
+     "par": 5,
+     "yards": 478,
+     "art": "assets/courses/id3002/h1.jpg"
+    },
+    {
+     "n": 3,
+     "par": 4,
+     "yards": 284,
+     "art": "assets/courses/id3002/h2.jpg"
+    },
+    {
+     "n": 4,
+     "par": 4,
+     "yards": 384,
+     "art": "assets/courses/id3002/h3.jpg"
+    },
+    {
+     "n": 5,
+     "par": 4,
+     "yards": 352,
+     "art": "assets/courses/id3002/h4.jpg"
+    },
+    {
+     "n": 6,
+     "par": 4,
+     "yards": 356,
+     "art": "assets/courses/id3002/h5.jpg"
+    },
+    {
+     "n": 7,
+     "par": 4,
+     "yards": 394,
+     "art": "assets/courses/id3002/h6.jpg"
+    },
+    {
+     "n": 8,
+     "par": 3,
+     "yards": 138,
+     "art": "assets/courses/id3002/h7.jpg"
+    },
+    {
+     "n": 9,
+     "par": 4,
+     "yards": 320,
+     "art": "assets/courses/id3002/h8.jpg"
+    }
+   ]
+  },
+  {
+   "id": 3003,
+   "name": "Vancouver City Cycle",
+   "region": "North America",
+   "holes": 6,
+   "par": 24,
+   "yards": 1972,
+   "label": "assets/courses/id3003/label.png",
+   "layout": [
+    {
+     "n": 1,
+     "par": 4,
+     "yards": 382,
+     "art": "assets/courses/id3003/h0.jpg"
+    },
+    {
+     "n": 2,
+     "par": 4,
+     "yards": 352,
+     "art": "assets/courses/id3003/h1.jpg"
+    },
+    {
+     "n": 3,
+     "par": 4,
+     "yards": 300,
+     "art": "assets/courses/id3003/h2.jpg"
+    },
+    {
+     "n": 4,
+     "par": 3,
+     "yards": 152,
+     "art": "assets/courses/id3003/h3.jpg"
+    },
+    {
+     "n": 5,
+     "par": 5,
+     "yards": 482,
+     "art": "assets/courses/id3003/h4.jpg"
+    },
+    {
+     "n": 6,
+     "par": 4,
+     "yards": 304,
+     "art": "assets/courses/id3003/h5.jpg"
+    }
+   ]
+  },
+  {
+   "id": 3004,
+   "name": "Wood Buffalo Wildlife Club",
+   "region": "North America",
+   "holes": 18,
+   "par": 72,
+   "yards": 5952,
+   "label": "assets/courses/id3004/label.png",
+   "layout": [
+    {
+     "n": 1,
+     "par": 4,
+     "yards": 296,
+     "art": "assets/courses/id3004/h0.jpg"
+    },
+    {
+     "n": 2,
+     "par": 5,
+     "yards": 550,
+     "art": "assets/courses/id3004/h1.jpg"
+    },
+    {
+     "n": 3,
+     "par": 4,
+     "yards": 304,
+     "art": "assets/courses/id3004/h2.jpg"
+    },
+    {
+     "n": 4,
+     "par": 4,
+     "yards": 344,
+     "art": "assets/courses/id3004/h3.jpg"
+    },
+    {
+     "n": 5,
+     "par": 5,
+     "yards": 462,
+     "art": "assets/courses/id3004/h4.jpg"
+    },
+    {
+     "n": 6,
+     "par": 3,
+     "yards": 156,
+     "art": "assets/courses/id3004/h5.jpg"
+    },
+    {
+     "n": 7,
+     "par": 4,
+     "yards": 280,
+     "art": "assets/courses/id3004/h6.jpg"
+    },
+    {
+     "n": 8,
+     "par": 4,
+     "yards": 312,
+     "art": "assets/courses/id3004/h7.jpg"
+    },
+    {
+     "n": 9,
+     "par": 4,
+     "yards": 398,
+     "art": "assets/courses/id3004/h8.jpg"
+    },
+    {
+     "n": 10,
+     "par": 4,
+     "yards": 390,
+     "art": "assets/courses/id3004/h9.jpg"
+    },
+    {
+     "n": 11,
+     "par": 4,
+     "yards": 276,
+     "art": "assets/courses/id3004/h10.jpg"
+    },
+    {
+     "n": 12,
+     "par": 4,
+     "yards": 332,
+     "art": "assets/courses/id3004/h11.jpg"
+    },
+    {
+     "n": 13,
+     "par": 3,
+     "yards": 172,
+     "art": "assets/courses/id3004/h12.jpg"
+    },
+    {
+     "n": 14,
+     "par": 5,
+     "yards": 546,
+     "art": "assets/courses/id3004/h13.jpg"
+    },
+    {
+     "n": 15,
+     "par": 4,
+     "yards": 364,
+     "art": "assets/courses/id3004/h14.jpg"
+    },
+    {
+     "n": 16,
+     "par": 5,
+     "yards": 516,
+     "art": "assets/courses/id3004/h15.jpg"
+    },
+    {
+     "n": 17,
+     "par": 3,
+     "yards": 140,
+     "art": "assets/courses/id3004/h16.jpg"
+    },
+    {
+     "n": 18,
+     "par": 3,
+     "yards": 114,
+     "art": "assets/courses/id3004/h17.jpg"
+    }
+   ]
+  },
+  {
+   "id": 4001,
+   "name": "Las Vegas City Cycle",
+   "region": "USA Desert",
+   "holes": 6,
+   "par": 24,
+   "yards": 2020,
+   "label": "assets/courses/id4001/label.png",
+   "layout": [
+    {
+     "n": 1,
+     "par": 4,
+     "yards": 348,
+     "art": "assets/courses/id4001/h0.jpg"
+    },
+    {
+     "n": 2,
+     "par": 4,
+     "yards": 364,
+     "art": "assets/courses/id4001/h1.jpg"
+    },
+    {
+     "n": 3,
+     "par": 4,
+     "yards": 316,
+     "art": "assets/courses/id4001/h2.jpg"
+    },
+    {
+     "n": 4,
+     "par": 3,
+     "yards": 178,
+     "art": "assets/courses/id4001/h3.jpg"
+    },
+    {
+     "n": 5,
+     "par": 5,
+     "yards": 502,
+     "art": "assets/courses/id4001/h4.jpg"
+    },
+    {
+     "n": 6,
+     "par": 4,
+     "yards": 312,
+     "art": "assets/courses/id4001/h5.jpg"
+    }
+   ]
+  }
+ ]
+}
